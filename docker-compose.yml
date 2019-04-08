@@ -1,0 +1,17 @@
+version: "3.2"
+
+services:
+    app:
+        image: bitnami/rails:5.2.3-0-r7
+        volumes:
+            - type: bind
+              source: ./app
+              target: /app
+        ports:
+            - "3000:3000"
+        command: sleep infinity
+    db:
+        image: postgres:10
+        environment:
+            - "POSTGRES_USER=postgres"
+            - "POSTGRES_PASSWORD=mysecretpassword1234"
